@@ -1,2 +1,0 @@
-pavel lox
-jurik toze
