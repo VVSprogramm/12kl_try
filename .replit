@@ -1,2 +1,2 @@
 language = "python3"
-run = "python funkciju_trenins.py"
+run = "python oop.py"
