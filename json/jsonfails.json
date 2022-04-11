@@ -1,0 +1,32 @@
+{
+ "Anna": {
+   "Uzvārds": "Bērziņa",
+   "Vecums": "35",
+   "Telefona numurs": "25225785"
+         },
+ "Bērtulis": [ {
+   "Uzvārds": "Vimze",
+   "Vecums": "25",
+   "Telefona numurs": "25252525"
+   },
+   {
+   "Uzvārds": "Saulkrasts",
+   "Vecums": "78",
+   "Telefona numurs": "25656565"
+   } ], 
+"Secīlija": [ {
+  "Uzvārds": "Mētriņa", 
+  "Vecums": "45",
+  "Telefona numurs": "25362536"
+  },
+  { 
+  "Uzvārds": "Sēja", 
+  "Vecums": "17", 
+  "Telefona numurs": "25252525" 
+  },
+  {
+  "Uzvārds": "Gārse",
+  "Vecums": "59", 
+  "Telefona numurs": "25789658"
+  }]
+}
