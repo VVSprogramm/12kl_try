@@ -44,10 +44,13 @@ def datu_saglabasana(vards,vecums):
            """,{'vards':vards,'vecums':vecums})
 
   db.commit()
+
+def datu_izvadisana():
+  db = sqlite3.connect('dati.db')
   dati = db.execute("""SELECT * FROM rezultati
                   """)
   rezultats = dati.fetchall()
-  print(rezultats)
+  return rezultats
 
 sg.theme('DarkAmber')   
 layout = [  [sg.Text('Spēle: Akmens, Šķēres, Papīrīts')],
@@ -57,10 +60,21 @@ layout = [  [sg.Text('Spēle: Akmens, Šķēres, Papīrīts')],
             [sg.Text('Rezultāts: '),sg.Text('', key='-REZ-')],
             [sg.Text('Ievadi savu vārdu:'), sg.InputText()],
             [sg.Text('Ievadi savu vecumu:'), sg.InputText()],
-            [sg.Text('Vai vēlies saglabāt rezultātu? '),sg.Button('Saglabāt')],
-            [sg.Cancel()]]
+            [sg.Text('Vai vēlies saglabāt rezultātu? '),sg.Button('Saglabāt')]]
 
-window = sg.Window('Spēle', layout)
+layout2 = [[sg.Text(datu_izvadisana())]]
+
+tabgrp = [
+  [
+    sg.TabGroup([[
+      sg.Tab('Spēle',layout ), 
+      sg.Tab('Spēlētāju dati',layout2)
+    ]]),
+    sg.Button('Aizvērt')
+  ]
+]
+ 
+window = sg.Window('Spēle', tabgrp)
 while True:             
     event, values = window.read()
     if event == "Akmens":
@@ -79,7 +93,7 @@ while True:
       vards = values[0]
       vecums = values[1]
       datu_saglabasana(vards,vecums)
-    if event in (sg.WIN_CLOSED, 'Cancel'):
+    if event in (sg.WIN_CLOSED, 'Aizvērt'):
         break
 
 window.close()
